@@ -8,7 +8,6 @@
 int main(void)
 {
 printf("The size of an int: %d byte(s).\n", sizeof(int));
-printf("The size of a double: %d byte(s).\n", sizeof(double));
 printf("The size of a char: %d byte(s).\n", sizeof(char));
 printf("The size of a long int: %d byte(s).\n", sizeof(long int));
 printf("The size of a long long int: %d byte(s).\n", sizeof(long long int));
