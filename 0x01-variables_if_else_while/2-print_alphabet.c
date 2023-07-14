@@ -8,12 +8,15 @@
  */
 int main(void)
 {
-	char alpha;
-
+	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	/**
         for (alpha = 'A'; alpha <= 'Z'; alpha++)
         {
-                putchar(tolower(alpha)."".join(alpha));
+                putchar(tolower(alpha));
 		putchar('\n');
         }
+	*/
+	putchar(tolower(alpha));
+	putchar('\n');
         return (0);
 }
