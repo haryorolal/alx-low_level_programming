@@ -9,15 +9,16 @@
 int main(void)
 {
 	char alpha;
+
 	for (alpha = 'A'; alpha <= 'Z'; alpha++)
 	{
 		putchar(tolower(alpha));
-
-		for (alpha = 'a'; alpha <= 'z'; alpha++)
-		{
-			putchar(toupper(alpha));
-		}
 	}
+
+	for (alpha = 'a'; alpha <= 'z'; alpha++)
+        {
+                putchar(toupper(alpha));
+        }
 	putchar('\n');
 	return (0);
 }
