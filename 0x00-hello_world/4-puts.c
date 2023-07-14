@@ -3,7 +3,6 @@
  * main - Entry point
  *
  * Description: 'function of code block'
- * @parameter: print multilingual puzzle
  * 
  * Return: Always 0 (Success)
  */
