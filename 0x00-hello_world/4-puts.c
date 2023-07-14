@@ -1,10 +1,5 @@
 #include<stdio.h>
-/*
-* int-Type of function
-* main-functiontion of code block
-* puts-Display printed text
-* return-returns back 
-*/
+/* main function of code block */
 int main(void)
 {
 /* statements */
