@@ -12,7 +12,7 @@ int main(void)
 
         for (alpha = 'A'; alpha <= 'Z'; alpha++)
         {
-                putchar(tolower(alpha).join());
+                putchar(tolower(alpha)."".join(alpha));
 		putchar('\n');
         }
         return (0);
