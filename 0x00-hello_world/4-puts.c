@@ -1,8 +1,14 @@
 #include<stdio.h>
-/* main function of code block */
+/**
+ * main - Entry point
+ *
+ * Description: 'function of code block'
+ * @parameter: print multilingual puzzle
+ * 
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-/* statements */
 puts("\"Programming is like building a multilingual puzzle");
 return (0);
 }
