@@ -1,6 +1,8 @@
 #include<stdio.h>
 /*
- * main - A program that prints multilingual puzzle
+ * main -Fucntion of code block
+ * puts - Display printed text
+ * return - returns back 
  */
 int main(void)
 {
