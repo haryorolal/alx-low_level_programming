@@ -1,9 +1,8 @@
 #include<stdio.h>
 /**
  * main - Entry point
- *
  * Description: 'function of code block'
- * 
+ *
  * Return: Always 0 (Success)
  */
 int main(void)
