@@ -9,10 +9,15 @@
  * Return: Always 0 (Success)
  */
 /* betty style doc for function main goes there */
+int lastDigits(number)
+{
+	int lastdigits = number % 10;
+	return lastdigits;
+}
 int main(void)
 {
 	int n;
-	int lastDigit = n % 10;
+	int lastDigit = lastDigits(n);
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
