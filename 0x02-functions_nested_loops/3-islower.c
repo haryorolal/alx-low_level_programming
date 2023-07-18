@@ -3,7 +3,7 @@
 /**
  * _islower - Entry point
  * Description: 'Checks for lowercase'
- * @Parameter: Recieves
+ * @Parameter - Recieves
  *
  * Return: Always 0 (Success)
  */
