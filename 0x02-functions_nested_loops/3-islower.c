@@ -3,8 +3,8 @@
 /**
  * _islower - Entry point
  * Description: 'Checks for lowercase'
- * @Parameter - Recieves
- *
+ * @c: int to check
+ * 
  * Return: Always 0 (Success)
  */
 int _islower(int c)
