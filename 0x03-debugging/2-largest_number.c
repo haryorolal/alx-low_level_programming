@@ -5,7 +5,7 @@
  *
  * @a: first integer
  * @b: second integer
- * @channel: third integer
+ * @c: third integer
  *
  * Return: largest number
  */
