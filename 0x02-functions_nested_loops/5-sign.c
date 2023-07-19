@@ -2,7 +2,7 @@
 /**
  * print_sign - Entry point
  * Description: 'Print out sign'
- * @Parameter -
+ * @n - int to be checked
  *
  * Return: Always 0 (Success)
  */
