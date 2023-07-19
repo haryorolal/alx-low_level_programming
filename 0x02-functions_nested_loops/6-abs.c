@@ -4,11 +4,18 @@
 /**
  * _abs - Main Entry
  * Description: 'print abs'
- * @Parameter: _abs
+ * @n: int to compute
  *
  * Return: Always 0 (Succeess)
  */
-int _abs(int)
+int _abs(int n)
 {
-	_putchar(abs());
+	if (n >= 0)
+	{
+		return (n);
+	}
+	else
+	{
+		return (-1);
+	}
 }
