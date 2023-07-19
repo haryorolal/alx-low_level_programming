@@ -3,7 +3,7 @@
 /**
  * _isalpha - Entry point
  * Description: 'check if letter'
- * @Parameter - 
+ * @c: the character to be checked 
  *
  * Return: Always 0 (Success)
  */
