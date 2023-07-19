@@ -1,17 +1,16 @@
 #include "main.h"
 /* more headers goes there */
 /**
- * main - Entry point
+ * positive_or_negative - Entry point
  * Description: 'Print if statement'
- * @i: int to call
+ * @i: argument to call
  *
  * Return: Always 0 (Success)
  */
 /* betty style doc for function main goes there */
 void positive_or_negative(int i)
 {
-        
-        srand(time(0));
+	srand(time(0));
         i = rand() - RAND_MAX / 2;
         /* your code goes there */
         if (i > 0)
