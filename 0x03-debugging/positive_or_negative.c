@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdlib.h>
+#include <time.h>
 /* more headers goes there */
 /**
  * positive_or_negative - function that prints positive or negative
