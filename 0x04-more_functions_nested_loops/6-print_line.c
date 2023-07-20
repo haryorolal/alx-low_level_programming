@@ -9,22 +9,21 @@
  */
 void print_line(int n)
 {
-	char d = '_';
-	int i;
-	i = 0;
-	
-	if (n <= 0)
-	{
-		_putchar('\n');
-	}
-	else
-	{
-		while (i < n)
-		{
-			_putchar(d);
-			i++;
-		}
-	}
+        char d = '_';
+        int i;
+        i = 0;
 
-	_putchar('\n');
+        if (n <= 0)
+        {
+                _putchar('\n');
+        }
+        else
+        {
+                while (i < n)
+                {
+                        _putchar(d);
+                        i++;
+                }
+        }
+        _putchar('\n');
 }
