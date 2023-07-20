@@ -2,8 +2,6 @@
 /**
  * more_numbers - function to print more
  * Description: 'To print more numbers'
- *
- * Return: returns result
  */
 void more_numbers(void)
 {
