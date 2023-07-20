@@ -24,6 +24,6 @@ void print_line(int n)
                         _putchar(d);
                         i++;
                 }
+		_putchar('\n');
         }
-        _putchar('\n');
 }
