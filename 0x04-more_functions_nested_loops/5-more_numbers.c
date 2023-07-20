@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * more_numbers - function to print more
  * Description: 'To print more numbers'
@@ -21,7 +20,6 @@ void more_numbers(void)
 			_putchar(b);
 			b++;
 		}
-
 		_putchar(c);
 		c++;
 	}
