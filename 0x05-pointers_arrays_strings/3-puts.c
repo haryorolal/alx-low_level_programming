@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 #include <string.h>
 /**
@@ -6,6 +7,6 @@
  */
 void _puts(char *str)
 {
-	puts(str);
-	puts("\n");
+puts(str);
+_putchar("\n");
 }
