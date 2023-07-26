@@ -9,12 +9,10 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	/*char *result;*/
+if (*dest != '\0')
+{
+dest = strcat(dest, src);
+}
 
-        if (*dest != '\0')
-        {
-                dest = strcat(dest, src);
-        }
-
-        return (dest);
+ return (dest);
 }
