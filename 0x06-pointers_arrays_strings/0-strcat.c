@@ -13,6 +13,5 @@ if (*dest != '\0')
 {
 dest = strcat(dest, src);
 }
-
- return (dest);
+return (dest);
 }
