@@ -18,5 +18,5 @@ char leet(char *b)
 				b[i] = num[j];
 		}
 	}
-	return (s);
+	return (b);
 }
