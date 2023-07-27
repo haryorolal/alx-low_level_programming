@@ -4,7 +4,7 @@
  * @b: argument
  * Return: Always return
  */
-char leet(char *b)
+char *leet(char *b)
 {
 	int i, j;
 	char letter[] = "AeEeOoTtLl";
@@ -14,7 +14,7 @@ char leet(char *b)
 	{
 		for (j = 0; j < 10; j++)
 		{
-			if (b[i] == letter[i])
+			if (b[i] == letter[j])
 				b[i] = num[j];
 		}
 	}
