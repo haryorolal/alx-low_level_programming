@@ -6,6 +6,16 @@
  */
 void print_number(int n)
 {
-	if (n != '\0')
-		_putchar(n);
+	int i;
+	int *s;
+
+	while (i < 10)
+	{
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			n = s[i];
+			_putchar(n);
+		}
+		i++;
+	}
 }
