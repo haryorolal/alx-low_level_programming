@@ -1,4 +1,5 @@
 #include "main.h"
+#include<stdio.h>
 /**
  * _strchr - locates a character in a string
  * @c: occurrence of the character
@@ -9,7 +10,7 @@ char *_strchr(char *s, char c)
 {
 	int i;
 	int found = 0;
-	char *result = NULL;
+	char *result;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
