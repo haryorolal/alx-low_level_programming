@@ -30,5 +30,5 @@ char *_strchr(char *s, char c)
 		isfound = 0;
 		return (NULL);
 	}
-	return (s);
+	return (0);
 }
