@@ -16,8 +16,8 @@ char *_strchr(char *s, char c)
 	{
 		if (c == s[i])
 		{
-			isfound = 1;
 			result = &s[i];
+			isfound = 1;
 			break;
 		}
 	}
@@ -27,8 +27,7 @@ char *_strchr(char *s, char c)
 	}
 	else
 	{
-		isfound = 0;
 		return (NULL);
 	}
-	return (0);
+	return (s);
 }
