@@ -8,7 +8,7 @@
  */
 int support_function(int number, int root)
 {
-	if ((root * root) < number)
+	if ((root * root) > number)
 	{
 		return (-1);
 	}
