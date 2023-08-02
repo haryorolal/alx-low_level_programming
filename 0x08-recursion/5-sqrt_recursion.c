@@ -18,7 +18,7 @@ int support_function(int number, int root)
 	}
 	else
 	{
-		return (_sqrt_recursion(number, root + 1));
+		return (support_function(number, root + 1));
 	}
 }
 
