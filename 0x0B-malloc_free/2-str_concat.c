@@ -48,7 +48,8 @@ char *str_concat(char *s1, char *s2)
 			storeconcant[len1 + i] = s2[i];
 		}
 
-		storeconcant = '\0';
-		return (storeconcant);
+		storeconcant[len1 + len2] = '\0';
 	}
+
+	return (storeconcant);
 }
