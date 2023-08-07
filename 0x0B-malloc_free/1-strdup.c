@@ -6,9 +6,9 @@
  * @str: only argument
  * Return: Alwyas if success
  */
-char *_strdup(char *str)
+char *_strdup(char* str)
 {
-	char *newstr;
+	char* newstr;
 
 	if (str == NULL)
 	{
@@ -18,7 +18,7 @@ char *_strdup(char *str)
 	int len;
 	len = 0;
 
-	char *currentStr = str;
+	char* currentStr = str;
 
 	while (*currentStr != '\0')
 	{
