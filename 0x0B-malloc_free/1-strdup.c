@@ -9,16 +9,17 @@
 char *_strdup(char* str)
 {
 	char* newstr;
+	int len;
+	char* currentStr;
 
 	if (str == NULL)
 	{
 		return (NULL);
 	}
 
-	size_t len;
 	len = 0;
 
-	char* currentStr = str;
+	currentStr = str;
 
 	while (*currentStr != '\0')
 	{
