@@ -6,11 +6,11 @@
  * @str: only argument
  * Return: Alwyas if success
  */
-char *_strdup(char* str)
+char *_strdup(char *str)
 {
-	char* newstr;
+	char *newstr;
 	int len;
-	char* currentStr;
+	char *currentStr;
 
 	if (str == NULL)
 	{
