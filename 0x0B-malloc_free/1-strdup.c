@@ -15,7 +15,7 @@ char *_strdup(char* str)
 		return (NULL);
 	}
 
-	int len;
+	size_t len;
 	len = 0;
 
 	char* currentStr = str;
