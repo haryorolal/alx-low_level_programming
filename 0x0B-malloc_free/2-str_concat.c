@@ -9,8 +9,7 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	int len1 = 0;
-	int len2 = 0;
+	int len1 = 0, len2 = 0;
 	char *storeconcant;
 
 	if (s1 == NULL || s2 == NULL)
@@ -47,9 +46,7 @@ char *str_concat(char *s1, char *s2)
 		{
 			storeconcant[len1 + i] = s2[i];
 		}
-
 		storeconcant[len1 + len2] = '\0';
+		return (storeconcant);
 	}
-
-	return (storeconcant);
 }
