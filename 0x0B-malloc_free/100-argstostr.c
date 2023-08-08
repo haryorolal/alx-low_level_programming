@@ -8,17 +8,21 @@
  */
 char *argstostr(int ac, char **av)
 {
+	int total_length;
+	int i;
+	char *current_arg;
+	char *current_char;, *newStr;
+
 	if (ac == 0 || av == NULL)
 	{
 		return (NULL);
 	}
 	
-	int total_length = 0;
-	int i;
+	total_length = 0;
 	
 	for (i = 0; i < ac; i++)
 	{
-		char *current_arg = av[i];
+		*current_arg = av[i];
 		while (*current_arg != '\0')
 		{
 			total_length++;
@@ -27,18 +31,18 @@ char *argstostr(int ac, char **av)
 		total_length++;
 	}
 	
-	char *newStr = (char *)malloc(total_length);
+	*newStr = (char *)malloc(total_length);
 	
 	if (newStr == NULL)
 	{
-		return (NULL); // Memory allocation failure
+		return (NULL);
 	}
 	
-	char *current_char = newStr;
+	*current_char = newStr;
 	
 	for (i = 0; i < ac; i++)
 	{
-		char *current_arg = av[i];
+		*current_arg = av[i];
 		
 		while (*current_arg != '\0')
 		{
@@ -49,11 +53,11 @@ char *argstostr(int ac, char **av)
 		
 		if (i < ac - 1)
 		{
-			*current_char = '\n'; // Add space between words
+			*current_char = '\n';
 			current_char++;
 		}
 	}
 	
-	*current_char = '\0'; // Null-terminate the concatenated string
+	*current_char = '\0';
 	return (newStr);
 }
