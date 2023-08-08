@@ -9,21 +9,25 @@
  */
 int **alloc_grid(int width, int height)
 {
+	int **newTwoDimentionalArray;
+
     if (width == 0 || height == 0)
     {
         return NULL;
     }
 
-    int **newTwoDimentionalArray = malloc(sizeof(int*) * height);
+    newTwoDimentionalArray = malloc(sizeof(int*) * height);
 
     if (newTwoDimentionalArray != NULL)
     {
-        for (int i = 0; i < height; i++)
+	    int i, j;
+
+        for (i = 0; i < height; i++)
         {
             newTwoDimentionalArray[i] = malloc(sizeof(int) * width);
             if (newTwoDimentionalArray[i] == NULL)
             {
-		for (int j = 0; j < i; j++)
+		for (j = 0; j < i; j++)
                 {
                     free(newTwoDimentionalArray[j]);
                 }
@@ -31,7 +35,7 @@ int **alloc_grid(int width, int height)
                 return NULL;
             }
 
-            for (int j = 0; j < width; j++)
+            for (j = 0; j < width; j++)
             {
                 newTwoDimentionalArray[i][j] = 0;
 	    }
