@@ -31,18 +31,18 @@ char *argstostr(int ac, char **av)
 		total_length++;
 	}
 	
-	*newStr = (char *)malloc(total_length);
+	newStr = (char *)malloc(total_length);
 	
 	if (newStr == NULL)
 	{
 		return (NULL);
 	}
 	
-	*current_char = newStr;
+	current_char = newStr;
 	
 	for (i = 0; i < ac; i++)
 	{
-		*current_arg = av[i];
+		current_arg = av[i];
 		
 		while (*current_arg != '\0')
 		{
