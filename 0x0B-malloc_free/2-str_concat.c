@@ -60,5 +60,9 @@ char *str_concat(const char *s1, const char *s2)
 
 		concat[len1 + len2] = '\0';
 	}
+	else
+	{
+		return (NULL);
+	}
 	return (concat);
 }
