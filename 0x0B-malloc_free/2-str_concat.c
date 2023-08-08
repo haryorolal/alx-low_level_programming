@@ -13,7 +13,7 @@
 char *str_concat(const char *s1, const char *s2)
 {
 	int len1;
-	int lent2;
+	int len2;
 	int *concat;
 
 	if (s1 == NULL || s2 == NULL)
@@ -51,7 +51,7 @@ char *str_concat(const char *s1, const char *s2)
 
 		/* Concatenate the characters from the second string to the concatenated string*/
 
-		for (size_t i = 0; i < len2; i++)
+		for (i = 0; i < len2; i++)
 		{
 			concat[len1 + i] = s2[i];
 		}
