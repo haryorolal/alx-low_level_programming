@@ -38,7 +38,7 @@ char *str_concat(const char *s1, const char *s2)
 	}
 
 	/* Allocate memory for the concatenated string*/
-	concat = (char *)malloc(len1 + len2 + 1); /* +1 for the null terminator*/
+	concat = malloc(len1 + len2 + 1); /* +1 for the null terminator*/
 
 	if (concat != NULL)
 	{
