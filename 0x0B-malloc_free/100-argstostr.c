@@ -11,7 +11,7 @@ char *argstostr(int ac, char **av)
 	int total_length;
 	int i;
 	char *current_arg;
-	char *current_char;, *newStr;
+	char *current_char, *newStr;
 
 	if (ac == 0 || av == NULL)
 	{
@@ -22,7 +22,7 @@ char *argstostr(int ac, char **av)
 	
 	for (i = 0; i < ac; i++)
 	{
-		*current_arg = av[i];
+		current_arg = av[i];
 		while (*current_arg != '\0')
 		{
 			total_length++;
