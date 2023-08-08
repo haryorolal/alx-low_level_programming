@@ -35,11 +35,11 @@ int **alloc_grid(int width, int height)
 				return (NULL);
 			}
 
-			for (i = 0; i < width; i++)
+			for (j = 0; j < width; i++)
 			{
 				newTwoDimentionalArray[i][j] = 0;
 			}
 		}
 	}
-	return newTwoDimentionalArray;
+	return (newTwoDimentionalArray);
 }
