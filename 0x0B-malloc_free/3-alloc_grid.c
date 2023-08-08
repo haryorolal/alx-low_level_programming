@@ -16,7 +16,7 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 
-	newTwoDimentionalArray = malloc(sizeof(int*) * height);
+	newTwoDimentionalArray = malloc(sizeof(int *) * height);
 
 	if (newTwoDimentionalArray != NULL)
 	{
@@ -40,6 +40,10 @@ int **alloc_grid(int width, int height)
 				newTwoDimentionalArray[i][j] = 0;
 			}
 		}
+	}
+	else
+	{
+		return (NULL);
 	}
 	return (newTwoDimentionalArray);
 }
