@@ -7,46 +7,58 @@
  * @s2: second argument
  * Return: Always if true
  */
-char *str_concat(char *s1, char *s2)
-{
-	int len1 = 0, len2 = 0;
-	char *storeconcant;
+#include <stdio.h>
+#include <stdlib.h>
 
-	if (s1 == NULL && s2 == NULL)
+char *str_concat(const char *s1, const char *s2)
+{
+	int len1;
+	int lent2;
+	int *concat;
+
+	if (s1 == NULL || s2 == NULL)
 	{
-		return (NULL);
+		return (NULL); /* Handle NULL inputs*/
 	}
+
+	/* Calculate lengths of the input strings*/
+
+	len1 = 0;
 
 	while (s1[len1] != '\0')
 	{
 		len1++;
 	}
 
+	len2 = 0;
+
 	while (s2[len2] != '\0')
 	{
 		len2++;
 	}
 
-	storeconcant = malloc(len1 + len2 + 1);
+	/* Allocate memory for the concatenated string*/
+	concat = (char *)malloc(len1 + len2 + 1); /* +1 for the null terminator*/
 
-	if (storeconcant == NULL)
-	{
-		return (NULL);
-	}
-	else
+	if (concat != NULL)
 	{
 		int i;
 
 		for (i = 0; i < len1; i++)
 		{
-			storeconcant[i] = s1[i];
+			concat[i] = s1[i];
 		}
 
-		for (i = 0; i < len2; i++)
+		/* Concatenate the characters from the second string to the concatenated string*/
+
+		for (size_t i = 0; i < len2; i++)
 		{
-			storeconcant[len1 + i] = s2[i];
+			concat[len1 + i] = s2[i];
 		}
-		storeconcant[len1 + len2] = '\0';
-		return (storeconcant);
+
+		/* Add the null terminator at the end*/
+
+		concat[len1 + len2] = '\0';
 	}
+	return (concat);
 }
