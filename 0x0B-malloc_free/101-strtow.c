@@ -100,8 +100,9 @@ char **strtow(char *str)
 			}
 			str++;
 		}
+	}
 
-		if (isWord)
+		if (isword)
 		{
 			int wordLength, i;
 
