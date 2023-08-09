@@ -80,7 +80,7 @@ char **strtow(char *str) {
     if (isWord)
     {
 	int i;
-        int wordLength; 
+        int wordLenght; 
 	
 	wordLenght = str - wordStart;
         wordArray[wordIndex] = (char *)malloc(wordLength + 1);
