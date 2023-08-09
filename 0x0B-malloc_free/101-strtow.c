@@ -4,7 +4,7 @@
 /**
  * isDelimiter - function to check for empty string
  * @c: first argument
- * Retrun: Always
+ * Return: Always
  */
 int isDelimiter(char c)
 {
@@ -33,7 +33,7 @@ int countWords(char *str)
 		}
 		str++;
 	}
-	
+
 	return (count);
 }
 /**
@@ -48,19 +48,19 @@ char **strtow(char *str)
 	int wordIndex;
 	int isWord;
 	char *wordStart;
-	
+
 	if (wordCount == 0)
 	{
 		return (NULL);
 	}
-	
+
 	wordArray = (char **)malloc(sizeof(char *) * (wordCount + 1));
-	
+
 	if (wordArray == NULL)
 	{
 		return (NULL);
 	}
-	
+
 	wordIndex = 0;
 	isWord = 0;
 	wordStart = NULL;
@@ -73,7 +73,7 @@ char **strtow(char *str)
 			{
 				int i;
 				int wordLength;
-				
+			
 				wordLength = str - wordStart;
 				wordArray[wordIndex] = (char *)malloc(wordLength + 1);
 				if (wordArray[wordIndex] == NULL)
@@ -83,7 +83,7 @@ char **strtow(char *str)
 						wordIndex--;
 						free(wordArray[wordIndex]);
 					}
-					
+				
 					free(wordArray);
 					return (NULL);
 				}
@@ -127,7 +127,11 @@ char **strtow(char *str)
 	wordArray[wordCount] = NULL;
 	return (wordArray);
 }
-
+/**
+ * freeWordArray - function to free array
+ * @wordArray: first argument
+ * Return: Always
+ */
 void freeWordArray(char **wordArray)
 {
 	int i;
