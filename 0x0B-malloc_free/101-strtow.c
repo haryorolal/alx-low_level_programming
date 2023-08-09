@@ -66,11 +66,12 @@ char **strtow(char *str)
 
 	while (*str != '\0')
 	{
+		int i;
+
 		if (isDelimiter(*str))
 		{
 			if (isword)
 			{
-				wordLength;
 				wordLength = str - wordStart;
 				wordArray[wordIndex] = (char *)malloc(wordLength + 1);
 				if (wordArray[wordIndex] == NULL)
@@ -83,18 +84,18 @@ char **strtow(char *str)
 					free(wordArray);
 					return (NULL);
 				}
-				int i;
+				
 				for (i = 0; i < wordLength; i++)
 				{
 					wordArray[wordIndex][i] = wordStart[i];
 				}
 				wordArray[wordIndex][wordLength] = '\0';
 				wordIndex++;
-				isWord = 0;
+				isword = 0;
 			}
 			else
 			{
-				isWord = 1;
+				isword = 1;
 				wordStart = str;
 			}
 			str++;
@@ -103,6 +104,7 @@ char **strtow(char *str)
 		if (isWord)
 		{
 			int wordLength, i;
+
 			wordLength = str - wordStart;
 			wordArray[wordIndex] = (char *)malloc(wordLength + 1);
 			if (wordArray[wordIndex] != NULL)
