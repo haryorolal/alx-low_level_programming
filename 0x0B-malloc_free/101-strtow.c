@@ -62,7 +62,7 @@ char **strtow(char *str)
 
 	wordIndex = 0;
 	isword = 0;
-	*wordStart = NULL;
+	wordStart = NULL;
 
 	while (*str != '\0')
 	{
@@ -119,7 +119,6 @@ char **strtow(char *str)
 		wordArray[wordCount] = NULL;
 
 		return (wordArray);
-	}
 }
 
 /**
@@ -129,10 +128,12 @@ char **strtow(char *str)
  */
 void freeWordArray(char **wordArray)
 {
+	int i;
+
 	if (wordArray == NULL)
 		return;
 
-	int i = 0;
+	i = 0;
 	while (wordArray[i] != NULL)
 	{
 		free(wordArray[i]);
