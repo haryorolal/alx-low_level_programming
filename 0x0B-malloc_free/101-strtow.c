@@ -73,7 +73,7 @@ char **strtow(char *str)
 			{
 				int i;
 				int wordLength;
-	
+
 				wordLength = str - wordStart;
 				wordArray[wordIndex] = (char *)malloc(wordLength + 1);
 				if (wordArray[wordIndex] == NULL)
@@ -83,7 +83,7 @@ char **strtow(char *str)
 						wordIndex--;
 						free(wordArray[wordIndex]);
 					}
-		
+
 					free(wordArray);
 					return (NULL);
 				}
@@ -92,7 +92,7 @@ char **strtow(char *str)
 				{
 					wordArray[wordIndex][i] = wordStart[i];
 				}
-		
+
 				wordArray[wordIndex][wordLength] = '\0';
 				wordIndex++;
 				isWord = 0;
