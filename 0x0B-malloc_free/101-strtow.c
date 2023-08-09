@@ -1,143 +1,118 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
-/**
- * isDelimeter - to determine if character is a delimeter
- * @c: only argument
- * Return: Always if success
- */
+#include <stdio.h>
+#include <stdlib.h>
 
-int isDelimiter(char c)
-{
-	return (c == ' ');
-}
-/**
- * countWords - function that splits a string into words
- * @str: only argument
- * Return: Always if true
- */
-
-int countWords(char *str)
-{
-	int count = 0;
-	int isWord = 0;
-
-	while (*str != '\0')
-	{
-		if (isDelimiter(*str))
-		{
-			isWord = 0;
-		}
-		else if (!isWord)
-		{
-			isWord = 1;
-			count++;
-		}
-		str++;
-	}
-	return (count);
+// Function to determine if a character is a delimiter (space)
+int isDelimiter(char c) {
+    return (c == ' ');
 }
 
-/**
- * strtow - function that splits a string into words
- * @str: only argument
- * Return: Always if true
- */
-char **strtow(char *str)
-{
-	int wordCount = countWords(str);
-	int wordIndex;
-	int isword;
-	char *wordStart;
-	char **wordArray;
-	int wordLength;
+// Function to count the number of words in the input string
+int countWords(char *str) {
+    int count = 0;
+    int isWord = 0; // Flag to track whether we are in a word or not
 
-	if (wordCount == 0)
-		return (NULL);
+    while (*str != '\0') {
+        if (isDelimiter(*str)) {
+            isWord = 0; // Reset flag when a delimiter is encountered
+        } else if (!isWord) {
+            isWord = 1; // Set flag when a non-delimiter character is encountered
+            count++;    // Increment word count
+        }
+        str++;
+    }
 
-	wordArray = (char **)malloc(sizeof(char *) * (wordCount + 1));
+    return (count);
+}
 
-	if (wordArray == NULL)
-		return (NULL);
+// Function to split the input string into words
+char **strtow(char *str) {
+    int wordCount = countWords(str);
+    char **wordArray;
 
-	wordIndex = 0;
-	isword = 0;
-	wordStart = NULL;
+    if (wordCount == 0) {
+        return (NULL);
+    }
 
-	while (*str != '\0')
-	{
+    wordArray = (char **)malloc(sizeof(char *) * (wordCount + 1));
+    if (wordArray == NULL) {
+        return (NULL); // Memory allocation failed
+    }
+
+    int wordIndex = 0;
+    int isWord = 0; // Flag to track whether we are in a word or not
+    char *wordStart = NULL;
+
+    while (*str != '\0') {
+        if (isDelimiter(*str)) {
+            if (isWord) {
 		int i;
+                int wordLength;
 
-		if (isDelimiter(*str))
-		{
-			if (isword)
-			{
-				wordLength = str - wordStart;
-				wordArray[wordIndex] = (char *)malloc(wordLength + 1);
-				if (wordArray[wordIndex] == NULL)
-				{
-					while (wordIndex > 0)
-					{
-						wordIndex--;
-						free(wordArray[wordIndex]);
-					}
-					free(wordArray);
-					return (NULL);
-				}
-				
-				for (i = 0; i < wordLength; i++)
-				{
-					wordArray[wordIndex][i] = wordStart[i];
-				}
-				wordArray[wordIndex][wordLength] = '\0';
-				wordIndex++;
-				isword = 0;
-			}
-			else
-			{
-				isword = 1;
-				wordStart = str;
-			}
-			str++;
-		}
-	}
+		wordLength = str - wordStart; // Calculate word length
+                wordArray[wordIndex] = (char *)malloc(wordLength + 1); // Allocate memory for the word
+                if (wordArray[wordIndex] == NULL) {
+                    // Memory allocation failed, clean up and return
+                    while (wordIndex > 0) {
+                        wordIndex--;
+                        free(wordArray[wordIndex]);
+                    }
+                    free(wordArray);
+                    return (NULL);
+                }
+                // Copy characters from wordStart to wordArray[wordIndex]
+                for (i = 0; i < wordLength; i++) {
+                    wordArray[wordIndex][i] = wordStart[i];
+                }
+                wordArray[wordIndex][wordLength] = '\0'; // Null-terminate the word
+                wordIndex++; // Move to the next word in the wordArray
+                isWord = 0;  // Reset flag
+            }
+        } else if (!isWord) {
+            isWord = 1; // Set flag when a non-delimiter character is encountered
+            wordStart = str; // Set the start of the word
+        }
+        str++;
+    }
 
-		if (isword)
-		{
-			int wordLength, i;
+    // Handle the last word if there is one
+    if (isWord)
+    {
+	int i;
+        int wordLength; 
+	
+	wordLenght = str - wordStart;
+        wordArray[wordIndex] = (char *)malloc(wordLength + 1);
+        if (wordArray[wordIndex] != NULL) {
+            for (i = 0; i < wordLength; i++) {
+                wordArray[wordIndex][i] = wordStart[i];
+            }
+            wordArray[wordIndex][wordLength] = '\0';
+        }
+    }
 
-			wordLength = str - wordStart;
-			wordArray[wordIndex] = (char *)malloc(wordLength + 1);
-			if (wordArray[wordIndex] != NULL)
-			{
-				for (i = 0; i < wordLength; i++)
-					wordArray[wordIndex][i] = wordStart[i];
-				wordArray[wordIndex][wordLength] = '\0';
-			}
-		}
+    // Null-terminate the wordArray
+    wordArray[wordCount] = NULL;
 
-		wordArray[wordCount] = NULL;
-
-		return (wordArray);
+    return (wordArray);
 }
 
-/**
- * freeWordArray - function that splits a string into words
- * @wordArray: only argument
- * Return: Always if true
- */
+// Function to free the memory allocated for wordArray
 void freeWordArray(char **wordArray)
 {
-	int i;
+    int i;
 
-	if (wordArray == NULL)
-		return;
+    if (wordArray == NULL) {
+        return;
+    }
 
-	i = 0;
-	while (wordArray[i] != NULL)
-	{
-		free(wordArray[i]);
-		i++;
-	}
-	free(wordArray);
+    i = 0;
+    while (wordArray[i] != NULL) {
+        free(wordArray[i]);
+        i++;
+    }
+    free(wordArray);
 }
+
