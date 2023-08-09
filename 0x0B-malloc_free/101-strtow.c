@@ -87,7 +87,7 @@ char **strtow(char *str)
 					free(wordArray);
 					return (NULL);
 				}
-		
+
 				for (i = 0; i < wordLength; i++)
 				{
 					wordArray[wordIndex][i] = wordStart[i];
