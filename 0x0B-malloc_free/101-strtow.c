@@ -25,10 +25,14 @@ int countWords(char *str)
 	while (*str != '\0')
 	{
 		if (isDelimiter(*str))
+		{
 			isWord = 0;
+		}
 		else if (!isWord)
+		{
 			isWord = 1;
 			count++;
+		}
 		str++;
 	}
 	return (count);
@@ -42,27 +46,31 @@ int countWords(char *str)
 char **strtow(char *str)
 {
 	int wordCount = countWords(str);
+	int wordIndex;
+	int isword;
+	char *wordStart;
+	char **wordArray;
+	int wordLength;
 
 	if (wordCount == 0)
 		return (NULL);
 
-	char **wordArray;
 	wordArray = (char **)malloc(sizeof(char *) * (wordCount + 1));
 
 	if (wordArray == NULL)
 		return (NULL);
 
-	int wordIndex = 0;
-	int isword = 0;
-	char *wordStart = NULL;
+	wordIndex = 0;
+	isword = 0;
+	*wordStart = NULL;
 
 	while (*str != '\0')
 	{
 		if (isDelimiter(*str))
 		{
-			if (isWord)
+			if (isword)
 			{
-				int wordLength;
+				wordLength;
 				wordLength = str - wordStart;
 				wordArray[wordIndex] = (char *)malloc(wordLength + 1);
 				if (wordArray[wordIndex] == NULL)
