@@ -2,18 +2,24 @@
 #include <stdlib.h>
 #include "main.h"
 
-int isDelimiter(char c) {
+int isDelimiter(char c)
+{
     return (c == ' ');
 }
 
-int countWords(char *str) {
+int countWords(char *str)
+{
     int count = 0;
     int isWord = 0;
 
-    while (*str != '\0') {
-        if (isDelimiter(*str)) {
+   while (*str != '\0')
+   {
+        if (isDelimiter(*str))
+	{
             isWord = 0;
-        } else if (!isWord) {
+        }
+	else if (!isWord)
+	{
             isWord = 1;
             count++;
         }
@@ -23,19 +29,22 @@ int countWords(char *str) {
     return (count);
 }
 
-char **strtow(char *str) {
+char **strtow(char *str)
+{
     int wordCount = countWords(str);
     char **wordArray;
     int wordIndex;
     int isWord;
     char *wordStart;
 
-    if (wordCount == 0) {
+    if (wordCount == 0)
+    {
         return (NULL);
     }
 
     wordArray = (char **)malloc(sizeof(char *) * (wordCount + 1));
-    if (wordArray == NULL) {
+    if (wordArray == NULL)
+    {
         return (NULL);
     }
 
@@ -43,18 +52,22 @@ char **strtow(char *str) {
     isWord = 0;
     wordStart = NULL;
 
-    while (*str != '\0') {
-        if (isDelimiter(*str)) {
-            if (isWord) {
+    while (*str != '\0')
+    {
+        if (isDelimiter(*str))
+	{
+            if (isWord)
+	    {
 		int i;
                 int wordLength;
 
 		wordLength = str - wordStart;
                 wordArray[wordIndex] = (char *)malloc(wordLength + 1);
 
-                if (wordArray[wordIndex] == NULL) {
-			
-		    while (wordIndex > 0) {
+                if (wordArray[wordIndex] == NULL)
+		{			
+		    while (wordIndex > 0)
+		    {
                         wordIndex--;
                         free(wordArray[wordIndex]);
                     }
@@ -62,7 +75,8 @@ char **strtow(char *str) {
                     return (NULL);
                 }
                 
-                for (i = 0; i < wordLength; i++) {
+                for (i = 0; i < wordLength; i++)
+		{
                     wordArray[wordIndex][i] = wordStart[i];
                 }
                 wordArray[wordIndex][wordLength] = '\0';
@@ -70,7 +84,8 @@ char **strtow(char *str) {
                 isWord = 0;
             }
         }
-	else if (!isWord) {
+	else if (!isWord)
+	{
             isWord = 1;
 	    wordStart = str;
         }
@@ -84,8 +99,10 @@ char **strtow(char *str) {
 	
 	wordLength = str - wordStart;
         wordArray[wordIndex] = (char *)malloc(wordLength + 1);
-        if (wordArray[wordIndex] != NULL) {
-            for (i = 0; i < wordLength; i++) {
+        if (wordArray[wordIndex] != NULL)
+	{
+            for (i = 0; i < wordLength; i++)
+	    {
                 wordArray[wordIndex][i] = wordStart[i];
             }
             wordArray[wordIndex][wordLength] = '\0';
@@ -101,12 +118,14 @@ void freeWordArray(char **wordArray)
 {
     int i;
 
-    if (wordArray == NULL) {
+    if (wordArray == NULL)
+    {
         return;
     }
 
     i = 0;
-    while (wordArray[i] != NULL) {
+    while (wordArray[i] != NULL)
+    {
         free(wordArray[i]);
         i++;
     }
