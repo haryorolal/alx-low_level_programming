@@ -43,14 +43,14 @@ char *argstostr(int ac, char **av)
 	for (i = 0; i < ac; i++)
 	{
 		current_arg = av[i];
-	
+
 		while (*current_arg != '\0')
 		{
 			*current_char = *current_arg;
 			current_char++;
 			current_arg++;
 		}
-	
+
 		if (i < ac - 1)
 		{
 			*current_char = '\n';
