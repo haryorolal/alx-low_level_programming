@@ -36,17 +36,17 @@ char **strtow(char *str)
 	if (words == NULL)
 		return (NULL);
 
-	uvtil(words, str);
+	fetwod(words, str);
 	words[len] = NULL;
 	return (words);
 }
 
 /**
- * uvtil - a uvtil function for fetching words into an array
- * @words: the strings array
+ * fetwod - a function for fetching words into an array
+ * @wods: the strings array
  * @str: the string
  */
-void uvtil(char **words, char *str)
+void fetwod(char **wods, char *str)
 {
 	int i, j, start, flag;
 
@@ -61,7 +61,7 @@ void uvtil(char **words, char *str)
 
 		if (i > 0 && str[i] == ' ' && str[i - 1] != ' ')
 		{
-			create_word(words, str, start, i, j);
+			create_wod(wods, str, start, i, j);
 			j++;
 			flag = 0;
 		}
@@ -70,25 +70,25 @@ void uvtil(char **words, char *str)
 	}
 
 	if (flag == 1)
-		create_word(words, str, start, i, j);
+		create_wod(wods, str, start, i, j);
 }
 
 /**
- * create_word - creates a word and insert it into the array
+ * create_wod - creates a word and insert it into the array
  * @words: the array of strings
  * @str: the string
  * @start: the starting index of the word
  * @end: the stopping index of the word
- * @index: the index of the array to insert the word
+ * @indes: the index of the array to insert the word
  */
-void create_word(char **words, char *str, int start, int end, int index)
+void create_wod(char **wods, char *str, int start, int end, int indes)
 {
 	int i, j;
 
 	i = end - start;
-	words[index] = (char *)malloc(sizeof(char) * (i + 1));
+	wods[indes] = (char *)malloc(sizeof(char) * (i + 1));
 
 	for (j = 0; start < end; start++, j++)
-		words[index][j] = str[start];
-	words[index][j] = '\0';
+		wods[indes][j] = str[start];
+	wods[indes][j] = '\0';
 }}
