@@ -36,17 +36,17 @@ char **strtow(char *str)
 	if (words == NULL)
 		return (NULL);
 
-	util(words, str);
+	uvtil(words, str);
 	words[len] = NULL;
 	return (words);
 }
 
 /**
- * util - a util function for fetching words into an array
+ * uvtil - a uvtil function for fetching words into an array
  * @words: the strings array
  * @str: the string
  */
-void util(char **words, char *str)
+void uvtil(char **words, char *str)
 {
 	int i, j, start, flag;
 
