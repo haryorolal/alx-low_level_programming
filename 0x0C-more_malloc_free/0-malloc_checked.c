@@ -12,12 +12,10 @@ void *malloc_checked(unsigned int b)
 	
 	memoSaver = malloc(b);
       
-	if (memoSaver != NULL)
-	{
-		return (memoSaver);
-	}
-	else
+	if (memoSaver == NULL)
 	{
 		exit(98);
 	}
+
+	return (memoSaver);
 }
