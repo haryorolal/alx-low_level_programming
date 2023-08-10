@@ -1,63 +1,49 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include "main.h"
+#include <stdlib.h>
+
 /**
- * argstostr - function that concatenates all the arguments of your program
- * @ac: first argument
- * @av: second array arguement
- * Return: Always if true
+ * argstostr - concatenates all the arguments of your program.
+ * @ac: arguments count
+ * @av: arguments vector
+ *
+ * Return: a pointer to a new string, or NULL if it fails
  */
 char *argstostr(int ac, char **av)
 {
-	int total_length;
-	int i;
-	char *current_arg;
-	char *current_char, *newStr;
+	char *str, *s;
+	int i, j, k, len = 0;
 
 	if (ac == 0 || av == NULL)
-	{
 		return (NULL);
-	}
-
-	total_length = 0;
 
 	for (i = 0; i < ac; i++)
 	{
-		current_arg = av[i];
-		while (*current_arg != '\0')
-		{
-			total_length++;
-			current_arg++;
-		}
-		total_length++;
+		s = av[i];
+		j = 0;
+
+		while (s[j++])
+			len++;
+		len++;
 	}
 
-	newStr = malloc(total_length);
-
-	if (newStr == NULL)
-	{
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
 		return (NULL);
-	}
 
-	current_char = newStr;
-
-	for (i = 0; i < ac; i++)
+	for (i = 0, j = 0; i < ac && j < len; i++)
 	{
-		current_arg = av[i];
+		s = av[i];
+		k = 0;
 
-		while (*current_arg != '\0')
+		while (s[k])
 		{
-			*current_char = *current_arg;
-			current_char++;
-			current_arg++;
+			str[j] = s[k];
+			k++;
+			j++;
 		}
-
-		if (i < ac - 1)
-		{
-			*current_char = '\n';
-			current_char++;
-		}
+		str[j++] = '\n';
 	}
+	str[j] = '\0';
 
-	*current_char = '\0';
-	return (newStr);
+	return (str);
 }
