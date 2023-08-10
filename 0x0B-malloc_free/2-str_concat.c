@@ -1,59 +1,47 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
- * str_concat - function that concatenates two string
- * @s1: first argument
- * @s2: second argument
- * Return: Always if true
+ * str_concat - concatenates two strings.
+ * @s1: first string
+ * @s2: second string
+ *
+ * Return: a pointer to a newly allocated space in memory which
+ * contains the contents of s1, followed by the contents of s2,
+ * and null terminated. NULL on failure
  */
-#include <stdio.h>
-#include <stdlib.h>
-
-char *str_concat(const char *s1, const char *s2)
+char *str_concat(char *s1, char *s2)
 {
-	int len1;
-	int len2;
-	char *concat;
+	int i, j, len1, len2, len;
+	char *result;
 
-	if (s1 == NULL || s2 == NULL)
+	len1 = len2 = 0;
+
+	if (s1 != NULL)
 	{
-		return (NULL); /* Handle NULL inputs*/
+		i = 0;
+		while (s1[i++] != '\0')
+			len1++;
 	}
 
-	/* Calculate lengths of the input strings*/
-
-	len1 = 0;
-
-	while (s1[len1] != '\0')
+	if (s2 != NULL)
 	{
-		len1++;
+		i = 0;
+		while (s2[i++] != '\0')
+			len2++;
 	}
 
-	len2 = 0;
+	len = len1 + len2;
+	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (result == NULL)
+		return (NULL);
 
-	while (s2[len2] != '\0')
-	{
-		len2++;
-	}
+	for (i = 0; i < len1; i++)
+		result[i] = s1[i];
+	for (j = 0; j < len2; j++, i++)
+		result[i] = s2[j];
+	result[len] = '\0';
 
-	/* Allocate memory for the concatenated string*/
-	concat = malloc(len1 + len2 + 1);
-
-	if (concat != NULL)
-	{
-		int i;
-
-		for (i = 0; i < len1; i++)
-		{
-			concat[i] = s1[i];
-		}
-
-		for (i = 0; i < len2; i++)
-		{
-			concat[len1 + i] = s2[i];
-		}
-		concat[len1 + len2] = '\0';
-	}
-	return (concat);
+	return (result);
 }
