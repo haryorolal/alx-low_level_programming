@@ -8,9 +8,9 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	int *memoSaver;
+	void *memoSaver;
 	
-	memoSaver = (int *)malloc(sizeof(int) * b);
+	memoSaver = malloc(b);
       
 	if (memoSaver != NULL)
 	{
