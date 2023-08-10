@@ -78,7 +78,7 @@ void fetwod(char **wods, char *str)
 
 /**
  * create_wod - creates a word and insert it into the array
- * @words: the array of strings
+ * @wods: the array of strings
  * @str: the string
  * @start: the starting index of the word
  * @end: the stopping index of the word
