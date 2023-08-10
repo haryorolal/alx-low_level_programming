@@ -94,4 +94,4 @@ void create_wod(char **wods, char *str, int start, int end, int indes)
 	for (j = 0; start < end; start++, j++)
 		wods[indes][j] = str[start];
 	wods[indes][j] = '\0';
-}}
+}
