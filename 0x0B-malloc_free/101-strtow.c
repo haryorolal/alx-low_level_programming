@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
+
+void fetwod(char **, char *);
+void create_wod(char **, char *, int, int, int);
 /**
  * strtow - splits a string into words.
  * @str: the string
