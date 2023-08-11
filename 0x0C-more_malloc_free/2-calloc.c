@@ -1,6 +1,4 @@
 #include <stdlib.h>
-#include "main.h"
-#include <stdio.h>
 /**
  * _calloc - function that allocates memory for an array
  * @nmemb: first argument
@@ -9,27 +7,26 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int *member;
+        char *member;
+	unsigned int i;
 
-	if (nmemb == 0 || size == 0)
-	{
-		return (NULL);
-	}
+        if (nmemb == 0 || size == 0)
+        {
+                return (NULL);
+        }
 
-	member = (unsigned int *)malloc(sizeof(int) * size);
+        member = malloc(nmemb * size);
 
-	if (member != NULL)
-	{
-		unsigned int i;
-
+        if (member != NULL)
+        {
 		for (i = 0; i < nmemb; i++)
-		{
-			member[i] = 0;
-		}
-	}
-	else
-	{
-		return (NULL);
-	}
-	return (member);
+                {
+                        member[i] = 0;
+                }
+        }
+        else
+        {
+                return (NULL);
+        }
+        return (member);
 }
