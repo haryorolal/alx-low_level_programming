@@ -8,8 +8,6 @@
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	struct dog dogs;
-	*d = dogs;
 	d->name = name;
 	d->age = age;
 	d->owner = owner;
