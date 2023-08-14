@@ -3,17 +3,14 @@
 /**
  * print_dog - function that prpints struct dog
  * @d: only argument
+ * Return: void
  */
 void print_dog(struct dog *d)
 {
-	if (d == NULL)
-	{
-		return;
-	}
-	else
+	if (d != NULL)
 	{
 		if ((*d).name == NULL)
-			printf("Name: (nill)\n");
+			printf("Name: (nil)\n");
 		else
 			printf("Name: %s\n", (*d).name);
 		if ((*d).age)
