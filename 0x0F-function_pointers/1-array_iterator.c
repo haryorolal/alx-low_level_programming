@@ -4,14 +4,13 @@
  * @array: first argument
  * @size: second argument
  * @action: function argument
+ * Return: Nothing
  */
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	int i;
-
 	if (array != NULL && action != NULL)
 	{
-		for (i = 0; i < size; i++)
+		for (size_t i = 0; i < size; i++)
 		{
 			action(array[i]);
 		}
