@@ -1,5 +1,5 @@
-#ifndef SIMPLE_OP_H
-#define SIMPLE_OP_H
+#ifndef SIMPLE_OP_H_
+#define SIMPLE_OP_H_
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
