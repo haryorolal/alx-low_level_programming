@@ -4,25 +4,24 @@
  * @array: array to search for integer
  * @size: number of elements in array
  * @cmp: pointer to function used to compare
- * Return: if not matches, return -1
+ * Return: returns -1 if elements don't match
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i;
 
-	if (size <= 0)
+	if (size > 0)
 	{
-		return (-1);
-	}
-
-	if (array != NULL && cmp != NULL)
-	{
-		for (i = 0; i < size; i++)
+		if (array != NULL && cmp != NULL)
 		{
-			if ((*cmp)(array[i]))
+			for (i = 0; i < size; i++)
 			{
-				return (i);
+				if ((*cmp)(array[i]))
+				{
+					return (i);
+				}
 			}
 		}
 	}
+	return (-1);
 }
