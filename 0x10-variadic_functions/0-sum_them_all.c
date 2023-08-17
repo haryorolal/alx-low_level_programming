@@ -2,7 +2,7 @@
 /**
  * sum_them_all - function that returns the sum of all its parameters
  * @n: first argument in variadic
- * @...: multiple arguments
+ * Return: returns result
  */
 int sum_them_all(const unsigned int n, ...)
 {
