@@ -3,7 +3,6 @@
 void printString(void) __attribute__((constructor));
 /**
  * printString - function to print string
- * Return: returns void
  */
 void printString(void)
 {
