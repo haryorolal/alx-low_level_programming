@@ -9,7 +9,7 @@
  */
 size_t print_list(const list_t *h)
 {
-	unsigned int i = 0;
+	size_t i = 0;
 
 	if (h != NULL)
 	{
@@ -19,7 +19,7 @@ size_t print_list(const list_t *h)
 		}
 		while (h->str != NULL)
 		{
-			unsigned int count = 0;
+			size_t count = 0;
 
 			while (h->str[count] != '\0')
 			{
