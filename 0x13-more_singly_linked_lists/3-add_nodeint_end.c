@@ -1,3 +1,4 @@
+#include "lists.h"
 /**
  * add_nodeint_end - function that adds new node to end of a list
  * @head: struct variable
@@ -33,7 +34,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 			currentNode = *head;
 			while (currentNode->next != NULL)
 			{
-				currentNode = currentNode->Next;
+				currentNode = currentNode->next;
 			}
 			currentNode->next = newNode;
 		}
