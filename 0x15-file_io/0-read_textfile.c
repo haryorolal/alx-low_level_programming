@@ -14,17 +14,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (filename == NULL)
 		return (0);
 
+	fd_open = open(filename, O_RDWR);
+	if (fd_open == -1)
+	{
+		perror("open");
+		return (0);
+	}
+
 	buff = malloc(letters);
 	if (buff == NULL)
 	{
 		perror("malloc");
-		return (0);
-	}
-
-	fd_open = open(filename, O_RDONLY);
-	if (fd_open == -1)
-	{
-		perror("open");
+		close(fd_open);
 		return (0);
 	}
 
