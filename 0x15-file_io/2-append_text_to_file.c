@@ -1,4 +1,4 @@
-#include <main.h>
+#include "main.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -19,7 +19,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	fd_append = open(filename, O_APPEND);
+	fd_append = open(filename, O_WRONLY | O_APPEND);
 	if (fd_append == -1)
 	{
 		return (-1);
