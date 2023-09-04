@@ -9,6 +9,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd_open;
 	int store_read_values = 0;
+	char store_written;
 	char *buff;
 
 	if (filename == NULL)
@@ -17,14 +18,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	fd_open = open(filename, O_RDWR);
 	if (fd_open == -1)
 	{
-		perror("open");
 		return (0);
 	}
 
-	buff = malloc(letters);
+	buff = malloc(sizeof(char) * letters);
 	if (buff == NULL)
 	{
-		perror("malloc");
 		close(fd_open);
 		return (0);
 	}
@@ -32,14 +31,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	store_read_values = read(fd_open, buff, letters);
 	if (store_read_values == -1)
 	{
-		perror("read");
 		close(fd_open);
 		free(buff);
 		return (0);
 	}
 
-	write(STDOUT_FILENO, buff, store_read_values);
+	store_written = write(STDOUT_FILENO, buff, store_read_values);
 	close(fd_open);
 	free(buff);
-	return (store_read_values);
+	return (store_written);
 }
