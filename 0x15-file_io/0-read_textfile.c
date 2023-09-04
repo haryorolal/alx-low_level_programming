@@ -40,6 +40,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (store_written == -1)
 	{
 		close(fd_open);
+		free(buff);
 		return (0);
 	}
 	close(fd_open);
