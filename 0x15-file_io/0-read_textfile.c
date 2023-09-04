@@ -13,7 +13,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd_open;
 	ssize_t store_read_values = 0;
-	char store_written;
+	ssize_t store_written;
 	char *buff;
 
 	if (filename == NULL)
