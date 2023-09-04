@@ -1,11 +1,15 @@
-#ifndef _FILE_H_
+#ifndef _FILE_H_i
 #define _FILE_H_
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#define BUFFER_SIZE 1024
 
 ssize_t read_textfile(const char *filename, size_t letters);
 int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
+int cp(const char *file_from, const char *file_to);
 
 #endif
