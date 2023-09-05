@@ -42,13 +42,13 @@ int main(int argc, char *argv[])
 	while (bytes_read > 0)
 	{
 		bytes_read = read(fd_source, buffer, BUFFER_SIZE);
+		if (bytes_read == -1)
+			exit(error_exit(98, "Error: Can't read to %s\n", file_from));
+
 		bytes_written = write(fd_dest, buffer, bytes_read);
 		if (bytes_written == -1)
 			exit(error_exit(99, "Error: Can't write to %s\n", file_to));
 	}
-
-	if (bytes_read == -1)
-		exit(error_exit(98, "Error: Can't write to %s\n", file_from));
 
 	if (close(fd_source) == -1)
 	{
