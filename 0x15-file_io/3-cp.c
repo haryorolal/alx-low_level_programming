@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 	{
 		bytes_read = read(fd_source, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
-			exit(error_exit(98, "Error: Can't read to %s\n", file_from));
+			exit(error_exit(98, "Error: Can't read from file %s\n", file_from));
 
 		bytes_written = write(fd_dest, buffer, bytes_read);
 		if (bytes_written == -1)
