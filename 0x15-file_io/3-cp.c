@@ -8,6 +8,7 @@
  * @exit_code: first argument
  * @message: second agument
  * @arg: third arg
+ * Return: returns
  */
 int error_exit(int exit_code, const char *message, const char *arg)
 {
