@@ -33,8 +33,10 @@ int main(int argc, char *argv[])
 
 	fd_source = open(file_from, O_RDONLY);
 	if (fd_source == -1)
-		exit(error_exit(98, "Error: Can't read from file %s\n", file_from));
-
+	{
+		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}
 	fd_dest = open(file_to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (fd_dest == -1)
 		exit(error_exit(99, "Error: Can't write to %s\n", file_to));
@@ -49,13 +51,11 @@ int main(int argc, char *argv[])
 		if (bytes_written == -1)
 			exit(error_exit(99, "Error: Can't write to %s\n", file_to));
 	}
-
 	if (close(fd_source) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", fd_source);
 		exit(100);
 	}
-
 	if (close(fd_dest) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", fd_dest);
