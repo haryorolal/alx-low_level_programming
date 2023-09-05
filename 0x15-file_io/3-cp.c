@@ -23,7 +23,7 @@ int error_exit(int exit_code, const char *message, const char *arg)
 int main(int argc, char *argv[])
 {
 	int fd_source, fd_dest;
-	ssize_t bytes_read = 0, bytes_written;
+	ssize_t bytes_read = 1, bytes_written;
 	char buffer[BUFFER_SIZE];
 	const char *file_from = argv[1], *file_to = argv[2];
 
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 	if (fd_dest == -1)
 		exit(error_exit(99, "Error: Can't write to %s\n", file_to));
 
-	while (bytes_read >= 0)
+	while (bytes_read > 0)
 	{
 		bytes_read = read(fd_source, buffer, BUFFER_SIZE);
 		bytes_written = write(fd_dest, buffer, bytes_read);
