@@ -5,7 +5,7 @@
  * @index: second argument
  * Return: returns value
  */
-int get_bit(unsigned long int n, unsigned int index)
+int get_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int mask;
 
@@ -13,6 +13,7 @@ int get_bit(unsigned long int n, unsigned int index)
 		return (-1);
 
 	mask = 1UL << index;
+	*n |= mask;
 
-	return ((n & mask) ? 1 : 0);
+	return (1);
 }
