@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * get_bit - function that return value of a bit at given index
+ * set_bit - function that set value of a bit at given index
  * @n: first argument
  * @index: second argument
  * Return: returns value
  */
-int get_bit(unsigned long int *n, unsigned int index)
+int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int mask;
 
