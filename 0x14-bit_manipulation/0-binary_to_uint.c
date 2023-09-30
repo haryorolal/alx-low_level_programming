@@ -1,6 +1,22 @@
 #include "main.h"
 
 /**
+ * custom_strlen - function to calculate len of a string
+ * @str: point to char that takes in argument
+ * Return: returns count;
+ */
+int custom_strlen(const char *str)
+{
+	int count = 0;
+
+	while (str[count] != '\0')
+	{
+		count++;
+	}
+	return (count);
+}
+
+/**
  * binary_to_uint - function that converts binary number to unsigned int
  * @b: pointer to char as first argument
  * Return: returns converted number
