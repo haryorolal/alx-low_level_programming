@@ -28,20 +28,20 @@ void close_file(int d_opened_file)
  */
 int main(int argc, char *argv[])
 {
-	int file_source, file_dest, bytes_read, bytes_written;
-	char buffer[BUFFER_SIZE];
-	const char *file_from, *file_to;
-
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
+	int file_source, file_dest, bytes_read, bytes_written;
+	char buffer[BUFFER_SIZE];
+	const char *file_from, *file_to;
+
 	file_from = argv[1];
 	file_to = argv[2];
 	file_source = open(file_from, O_RDONLY);
-	bytes_read = read(file_from, buffer, BUFFER_SIZE);
+	bytes_read = read(file_source, buffer, BUFFER_SIZE);
 	file_dest = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	while (bytes_read > 0)
