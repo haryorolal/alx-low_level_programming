@@ -49,6 +49,8 @@ int main(int argc, char *argv[])
 		if (file_source == -1 || bytes_read == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			close_file(file_source);
+			close_file(file_dest);
 			exit(98);
 		}
 
@@ -56,6 +58,8 @@ int main(int argc, char *argv[])
 		if (file_dest == -1 || bytes_written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			close_file(file_source);
+			close_file(file_dest);
 			exit(99);
 		}
 		bytes_read = read(file_source, buffer, BUFFER_SIZE);
