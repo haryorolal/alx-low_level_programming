@@ -37,13 +37,13 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
 	file_from = argv[1];
 	file_to = argv[2];
 	file_source = open(file_from, O_RDONLY);
+	bytes_read = read(file_source, buffer, BUFFER_SIZE);
 	file_dest = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
-	while ((bytes_read = read(file_source, buffer, BUFFER_SIZE)) > 0)
+	while (bytes_read > 0)
 	{
 		if (file_source == -1 || bytes_read == -1)
 		{
