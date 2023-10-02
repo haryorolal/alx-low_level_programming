@@ -1,4 +1,7 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include <elf.h>
 /**
  * display_error - prints errors
@@ -10,6 +13,7 @@ void display_error(const char *message)
 	fprintf(stderr, "%s\n", message);
 	exit(98);
 }
+
 /**
  * display_elf_header_info - prints nums on elf header.
  * @elf_header: elf header input
@@ -50,11 +54,14 @@ int main(int argc, char *argv[])
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
+	{
 		dprintf(STDERR_FILENO, "Error: failed to open the file");
-
-
+	}
 	if (read(fd, &elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
+	{
+
 		dprintf(STDERR_FILENO, "Failed to read ELF header");
+	}
 
 	if (elf_header.e_ident[EI_MAG0] != ELFMAG0 ||
 		elf_header.e_ident[EI_MAG1] != ELFMAG1 ||

@@ -42,7 +42,8 @@ int main(int argc, char *argv[])
 	file_to = argv[2];
 	file_source = open(file_from, O_RDONLY);
 	bytes_read = read(file_source, buffer, BUFFER_SIZE);
-	file_dest = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	file_dest = open(file_to, O_WRONLY | O_CREAT | O_TRUNC,
+			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 
 	while (bytes_read > 0)
 	{
