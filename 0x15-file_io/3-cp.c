@@ -76,6 +76,8 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
+		bytes_read = read(file_source, buffer, BUFFER_SIZE);
+		file_dest = open(file_to, O_WRONLY | O_APPEND);
 	}
 	close_file(file_source);
 	close_file(file_dest);
