@@ -1,5 +1,21 @@
 #include "main.h"
 /**
+ * _strlen - function to calculate leng of string
+ * @str: pointer to a character
+ * Return: return count
+ */
+int _strlen(char *str)
+{
+	int count;
+
+	count = 0;
+	while (str[count] != '\0')
+	{
+		count++;
+	}
+	return (count);
+}
+/**
  * create_file - function that creates a file
  * @filename: pointer to a character argument
  * @text_content: content in a file
@@ -19,7 +35,7 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		bytes_written = write(d_opened_file, text_content, strlen(text_content));
+		bytes_written = write(d_opened_file, text_content, _strlen(text_content));
 		if (bytes_written == -1)
 		{
 			close(d_opened_file);
