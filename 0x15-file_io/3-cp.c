@@ -1,7 +1,4 @@
 #include "main.h"
-
-char *create_buffer(char *file_d);
-void close_file(int d_opened_file);
 /**
  * create_buffer - Allocates 1024 bytes for a buffer.
  * @file_d: The name of the file
@@ -11,7 +8,7 @@ char *create_buffer(char *file_d)
 {
 	char *buffer;
 
-	buffer = (char *)malloc(sizeof(char) * 1024);
+	buffer = malloc(sizeof(char) * 1024);
 	if (buffer == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_d);
@@ -54,10 +51,10 @@ int main(int argc, char *argv[])
 
 	file_from = argv[1];
 	file_to = argv[2];
-	buffer = create_buffer(argv[2]);
+	buffer = create_buffer(file_to);
 	file_source = open(file_from, O_RDONLY);
-	bytes_read = read(from, buffer, 1024);
-	file_dest = open(file_to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	bytes_read = read(file_from, buffer, 1024);
+	file_dest = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	while (bytes_read > 0)
 	{
@@ -75,11 +72,9 @@ int main(int argc, char *argv[])
 			free(buffer);
 			exit(98);
 		}
-
 		bytes_read = read(file_source, buffer, 1024);
 		file_dest = open(file_to, O_WRONLY | O_APPEND);
 	}
-
 	free(buffer);
 	close_file(file_source);
 	close_file(file_dest);
