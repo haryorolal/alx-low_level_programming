@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 
 	file_from = argv[1];
 	file_to = argv[2];
-	buffer = create_buffer(file_to);
+	buffer = create_buffer(file_from);
 	file_source = open(file_from, O_RDONLY);
 	bytes_read = read(file_from, buffer, 1024);
 	file_dest = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
