@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		dprintf(stderr, "Usage: %s elf_filename\n", argv[0]);
+		fprintf(stderr, "Usage: %s elf_filename\n", argv[0]);
 		exit(98);
 	}
 
@@ -55,13 +55,13 @@ int main(int argc, char *argv[])
 	fd = open(elf_filename, O_RDONLY);
 	if (fd == -1)
 	{
-		dprintf(stderr, "Error: Cannot open file %s\n", elf_filename);
+		fprintf(stderr, "Error: Cannot open file %s\n", elf_filename);
 		exit(98);
 	}
 
 	if (read(fd, &elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
 	{
-		dprintf(stderr, "Error: Cannot read ELF header from file %s\n",
+		fprintf(stderr, "Error: Cannot read ELF header from file %s\n",
 				elf_filename);
 		close(fd);
 		exit(98);
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 			elf_header.e_ident[EI_MAG2] != ELFMAG2 ||
 			elf_header.e_ident[EI_MAG3] != ELFMAG3)
 	{
-		dprintf(stderr, "Error: Not an ELF file: %s\n", elf_filename);
+		fprintf(stderr, "Error: Not an ELF file: %s\n", elf_filename);
 		close(fd);
 		exit(98);
 	}
