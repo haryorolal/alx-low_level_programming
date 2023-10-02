@@ -33,27 +33,31 @@ int main(int argc, char *argv[])
 	const char *file_from, *file_to;
 
 	if (argc != 3)
-	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
-	}
 
 	file_from = argv[1];
 	file_to = argv[2];
 	file_source = open(file_from, O_RDONLY);
-	bytes_read = read(file_source, buffer, BUFFER_SIZE);
-	file_dest = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-
-	while (bytes_read > 0)
+	if (file_source == -1)
 	{
-		if (file_source == -1 || bytes_read == -1)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}
+	file_dest = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (file_dest == -1)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_to);
+		exit(99);
+
+	while ((bytes_read = read(file_source, buffer, BUFFER_SIZE)) > 0)
+	{
+		if (bytes_read == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			exit(98);
 		}
-
 		bytes_written = write(file_dest, buffer, bytes_read);
-		if (file_dest == -1 || bytes_written == -1)
+		if (bytes_written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
