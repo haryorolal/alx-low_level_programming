@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			close_file(file_source);
-			close_file(file_dest);
 			exit(98);
 		}
 
