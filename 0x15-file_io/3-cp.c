@@ -1,21 +1,11 @@
-#include "main.h"
-/**
- * create_buffer - Allocates 1024 bytes for a buffer.
- * @file_d: The name of the file
- * Return: A pointer to the newly-allocated buffer.
- */
-char *create_buffer(char *file_d)
-{
-	char *buffer;
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
-	buffer = malloc(sizeof(char) * 1024);
-	if (buffer == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_d);
-		exit(99);
-	}
-	return (buffer);
-}
+#define BUFFER_SIZE 1024
 /**
  * close_file - Closes file descriptors.
  * @d_opened_file: The file descriptor to be closed.
@@ -40,7 +30,7 @@ void close_file(int d_opened_file)
 int main(int argc, char *argv[])
 {
 	int file_source, file_dest, bytes_read, bytes_written;
-	char *buffer;
+	char *buffer[BUFFER_SIZE];
 	const char *file_from, *file_to;
 
 	if (argc != 3)
@@ -51,9 +41,8 @@ int main(int argc, char *argv[])
 
 	file_from = argv[1];
 	file_to = argv[2];
-	buffer = create_buffer(file_from);
 	file_source = open(file_from, O_RDONLY);
-	bytes_read = read(file_from, buffer, 1024);
+	bytes_read = read(file_source, buffer, BUFFER_SIZE);
 	file_dest = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	while (bytes_read > 0)
@@ -61,7 +50,6 @@ int main(int argc, char *argv[])
 		if (file_source == -1 || bytes_read == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-			free(buffer);
 			exit(98);
 		}
 
@@ -69,13 +57,11 @@ int main(int argc, char *argv[])
 		if (file_dest == -1 || bytes_written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-			free(buffer);
-			exit(98);
+			exit(99);
 		}
-		bytes_read = read(file_source, buffer, 1024);
+		bytes_read = read(file_source, buffer, BUFFER_SIZE);
 		file_dest = open(file_to, O_WRONLY | O_APPEND);
 	}
-	free(buffer);
 	close_file(file_source);
 	close_file(file_dest);
 	return (0);
