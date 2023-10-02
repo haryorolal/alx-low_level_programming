@@ -30,7 +30,7 @@ void close_file(int d_opened_file)
 int main(int argc, char *argv[])
 {
 	int file_source, file_dest, bytes_read, bytes_written;
-	char *buffer[BUFFER_SIZE];
+	char buffer[BUFFER_SIZE];
 	const char *file_from, *file_to;
 
 	if (argc != 3)
